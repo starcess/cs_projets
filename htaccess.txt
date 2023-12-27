@@ -1,0 +1,9 @@
+# Match requests for image files with specific extensions
+RewriteRule ^images/([^/]+\.(?:jpg|jpeg|png|gif))$ image_handler.php?image=$1 [L,QSA]
+Header set Access-Control-Allow-Origin *
+
+    RewriteEngine On
+    RewriteBase /zi_htdocs/RichRicasso/
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.+)$ /zi_htdocs/RichRicasso/globals.php [QSA,L]
